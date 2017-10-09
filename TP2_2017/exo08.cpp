@@ -13,11 +13,11 @@ int main () {
 
 	int tableau[arraySize];
 
-	for(int i=0; i < size(tableau); i++) {
+	for(int i=0; i < arraySize; i++) {
 		cin >> tableau[i];
 	}
 	cin >> ref;
-	for(int i=0; i < size(tableau); i++) {
+	for(int i=0; i < arraySize; i++) {
 		int intraloopstorage = tableau[i] - ref;
 		intraloopstorage = abs(intraloopstorage);
 		if(intraloopstorage<forloopstorage){
