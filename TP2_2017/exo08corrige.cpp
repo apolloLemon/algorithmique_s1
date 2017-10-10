@@ -5,10 +5,11 @@
 using namespace std;
 
 int main () {
+	const int bufferSize = 1000;
 	int arraySize, ref, forloopstorage = 2147483647;
 	cin >> arraySize;
 
-	int tableau[arraySize];
+	array<int, bufferSize> tableau;
 
 	for(int i=0; i < arraySize; i++) {
 		cin >> tableau[i];
