@@ -1,5 +1,5 @@
 #include <iostream>
-#include <cmaths>
+#include <cmath>
 
 using namespace std;
 
@@ -11,22 +11,10 @@ bool isocele(float a,float b,float c) {
 }
 
 bool rectangle(float a,float b,float c) {
-    if (a>b && a>c) {
-        if((b*b+c*c)==(a*a))
-            return 1;
-        else
-            return 0;
-    } else if (b>a && b>c) {
-        if((a*a+c*c)==(b*b))
-            return 1;
-        else
-            return 0;
-    } else if (c>a && c>b) {
-        if((a*a+b*b)==(c*c))
-            return 1;
-        else
-            return 0;
-    }
+    if (a>b && a>c && (b*b+c*c)==(a*a)) return 1;
+    else if (b>a && b>c && (a*a+c*c)==(b*b)) return 1;
+    else if (c>a && c>b && (a*a+b*b)==(c*c)) return 1;
+    return 0;
 }
 
 bool equilateral(float a,float b,float c) {
@@ -45,8 +33,8 @@ bool fplat(float a,float b,float c) {
 
 int main()
 {
-    float a, b, c, perimetre(0), s, A;
-    bool triangle(0),iso(0),rect(0),equi(0),plat(0);;
+    float a, b, c, s, A, p, temp;
+    bool triangle = 0;
 
     cout << "Rentrez les valeurs de vos 3 cotes separees d'espaces: " << endl;
     cin >> a >> b >> c;
@@ -57,8 +45,8 @@ int main()
     } else cout << "Un triangle ne peut avoir ces 3 longueurs comme cote." << endl;
 
     if(triangle){
-        perimetre=+(a+b+c);
-        s = perimetre / 2;
+        p=a+b+c;
+        s = p / 2;
         A = sqrt(s*(s-a)*(s-b)*(s-c));
 
         cout << "Votre triangle est : ";
@@ -76,7 +64,7 @@ int main()
         }
 
         cout << endl;
-        cout << "Votre triangle a un perimetre de " << perimetre << " et une aire de " << A << endl;
+        cout << "Votre triangle a un perimetre de " << p << " et une aire de " << A << endl;
     }
     return 0;
 }
