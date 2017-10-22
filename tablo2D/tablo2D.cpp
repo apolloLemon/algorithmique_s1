@@ -1,10 +1,8 @@
 #include <iostream>
-
 using namespace std;
 
 int main() {
 	int row, cell, choixrang, choixplace;
-
 	cin >> row >> cell;
 	bool places[row][cell];
 

@@ -6,7 +6,8 @@ int main() {
 	const int cBuffSize = 512;
 
 	using placesSub = std::array<char, cBuffSize>;
-	using places = std::array<placesSub, rBuffSize>;
+	//using places = std::array<placesSub, rBuffSize>;
+	std::array<placesSub, rBuffSize> places;
 
 	int row, cell, choixrang, choixplace;
 
@@ -19,7 +20,7 @@ int main() {
 		}
 	}
 
-	std::cout << "Choisisez vos place a reserver, \"0 0\" pour terminer):\n";
+	std::cout << "\nChoisisez vos place a reserver, \"0 0\" pour terminer):\n";
 	do {
 		std::cin >> choixrang >> choixplace;
 		if (choixrang>0 && choixplace>0){
@@ -27,7 +28,7 @@ int main() {
 		}
 	} while(choixrang!=0 || choixplace!=0);
 
-	std::cout << "Plan des reservations de la salle:\n";
+	std::cout << "\nPlan des reservations de la salle:\n";
 	for (int i=0;i<row;i++) {
 		for (int j=0;j<cell;j++) {
 			std::cout << places[i][j] << ' ';			
