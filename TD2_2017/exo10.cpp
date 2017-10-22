@@ -13,14 +13,17 @@ int main() {
 	for(int i=0; i<buff; i++) {
 		std::cin >> T1[i];
 	}
-	std::cout << "Entrez les valeurs du deusieme tableau"<<std::endl;;
+	std::cout << "Entrez les valeurs du deuxieme tableau"<<std::endl;;
 	for(int i=0; i<buff; i++) {
 		std::cin >> T2[i];
 	}
 
 
 	for(int i=0; i<buff; i++){
-		if (T1[i] != T2[buff-i-1]) mirroir = false;
+		if (T1[i] != T2[buff-i-1]) {
+			mirroir = false;
+			break;
+		}
 	}
 
 	std::string rep = (mirroir) ? " sont " : " ne sont pas ";
