@@ -4,24 +4,22 @@ using namespace std;
 
 int main() {
 	int row, cell, choixrang, choixplace;
-	bool modechoix = true;
 
 	cin >> row >> cell;
-
-	char places[row][cell];
+	bool places[row][cell];
 
 	for (int i=0;i<row;i++) {
 		for (int j=0;j<cell;j++) {
-			places[i][j]='L';			
+			places[i][j]=0;			
 		}
 	}
 
-	while(modechoix) {
+	do {
 		cin >> choixrang >> choixplace;
 		if (choixrang>0 && choixplace>0){
-			places[choixrang-1][choixplace-1] = 'R';
-		} else modechoix = false;
-	}	
+			places[choixrang-1][choixplace-1] = 1;
+		}
+	} while (choixrang!=0 || choixplace!=0);	
 
 	for (int i=0;i<row;i++) {
 		for (int j=0;j<cell;j++) {
@@ -32,8 +30,8 @@ int main() {
 
 	for (int i=0;i<row;i++) {
 		for (int j=0;j<cell;j++) {
-			if (places[i][j] == 'L') {
-				cout << "Premiere place Libre: " << i+1 << " " << j+1 << endl;
+			if (!places[i][j]) {
+				cout << i+1 << " " << j+1 << endl;
 				i=row; j=cell;
 			}				
 		}
