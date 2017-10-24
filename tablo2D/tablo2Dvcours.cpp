@@ -7,7 +7,7 @@ int main() {
 
 	using placesparrangees = std::array<char, cBuffSize>;
 	using rangees = std::array<placesparrangees, rBuffSize>;
-	ragees places;
+	rangees places;
 
 	int row, cell, choixrang, choixplace;
 
