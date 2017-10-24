@@ -9,8 +9,9 @@ int main () {
 	int wordsize, lives;
 
 	cin >> sol;
+	system("clear");
 
-	wordsize = sol.length();
+	wordsize = sol.size();
 	lives = 3+(wordsize/4);
 	myst = sol;
 	for(int i=0; i<wordsize;i++){
@@ -28,7 +29,7 @@ int main () {
 			}
 		}
 		if(sol==myst) {
-			cout << "You win" << endl;
+			cout << sol<<"\nYou win" << endl;
 			return 0;
 		}
 		if(!goodGuess) lives--;
