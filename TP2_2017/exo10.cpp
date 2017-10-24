@@ -4,10 +4,15 @@
 using namespace std;
 
 string pallindromeCheck (string word) {
-	int wordLength = word.length();
+	string nospaces = "";
+	for(unsigned int i=0; i<word.length(); i++){
+		if(word[i]!= ' '){
+			nospaces += word[i];
+		}
+	}
 
-	for (int i=0; i<wordLength/2; i++) {
-		if (word[i] != word[wordLength-i-1]) {
+	for (unsigned int i=0; i<nospaces.length()/2; i++) {
+		if (nospaces[i] != nospaces[nospaces.length()-i-1]) {
 			return " not ";
 		}
 	}
