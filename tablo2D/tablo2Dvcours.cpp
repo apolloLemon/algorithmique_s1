@@ -5,9 +5,9 @@ int main() {
 	const int rBuffSize = 512;
 	const int cBuffSize = 512;
 
-	using placesSub = std::array<char, cBuffSize>;
-	//using places = std::array<placesSub, rBuffSize>;
-	std::array<placesSub, rBuffSize> places;
+	using placesparrangees = std::array<char, cBuffSize>;
+	using rangees = std::array<placesparrangees, rBuffSize>;
+	ragees places;
 
 	int row, cell, choixrang, choixplace;
 
