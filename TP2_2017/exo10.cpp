@@ -7,7 +7,7 @@ string pallindromeCheck (string word) {
 	string nospaces = "";
 	for(unsigned int i=0; i<word.length(); i++){
 		if(word[i]!= ' '){
-			nospaces += word[i];
+			nospaces += tolower(word[i]);
 		}
 	}
 
