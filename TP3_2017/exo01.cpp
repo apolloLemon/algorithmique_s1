@@ -4,31 +4,23 @@
 using namespace std;
 
 bool isocele(float a,float b,float c) {
-    if(a==b || a==c || c==b)
-        return 1;
-    else
-        return 0;
+    if(b==a || b==c) return 1;
+    return 0;
 }
 
 bool rectangle(float a,float b,float c) {
-    if (a>b && a>c && (b*b+c*c)==(a*a)) return 1;
-    else if (b>a && b>c && (a*a+c*c)==(b*b)) return 1;
-    else if (c>a && c>b && (a*a+b*b)==(c*c)) return 1;
+    if ((b*b+c*c)==(a*a)) return 1;
     return 0;
 }
 
 bool equilateral(float a,float b,float c) {
-    if (a==b && a==c)
-        return 1;
-    else
-        return 0;
+    if (a==c) return 1;
+    return 0;
 }
 
 bool fplat(float a,float b,float c) {
-    if ((a+b)==c || (a+c)==b || (b+c)==a)
-        return 1;
-    else
-        return 0;
+    if (a-b-c==0) return 1;
+    return 0;
 }
 
 int main()
@@ -45,7 +37,7 @@ int main()
     c = fmin(fmin(x,y),z);
     b = p-a-c;
 
-    if(a<c+b){
+    if(a<=c+b){
         cout << "Les 3 longueurs forment un triangle valide." << endl;
         triangle = 1;
     } else cout << "Un triangle ne peut avoir ces 3 longueurs comme cote." << endl;
