@@ -17,10 +17,10 @@ int main () {
 
 	for(int i=0;i<26;i++){
 		if(letters[i]%2!=0) {
-			cout << "not annagram"<<endl;
+			cout << "not anagram"<<endl;
 			return 0;
 		}
 	}
-	cout << "annagram"<<endl;
+	cout << "anagram"<<endl;
 	return 0;
 }
