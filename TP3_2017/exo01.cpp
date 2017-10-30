@@ -3,6 +3,10 @@
 
 using namespace std;
 
+bool triangle(float a, float b, float c) {
+	return (a<=c+b);
+}
+
 bool isocele(float a,float b,float c) {
     if(b==a || b==c) return 1;
     return 0;
@@ -26,7 +30,6 @@ bool fplat(float a,float b,float c) {
 int main()
 {
     float x, y, z, s, A, p, a, b, c;
-    bool triangle = 0;
 
     cout << "Rentrez les valeurs de vos 3 cotes separees d'espaces: " << endl;
     cin >> x >> y >> z;
@@ -37,12 +40,8 @@ int main()
     c = fmin(fmin(x,y),z);
     b = p-a-c;
 
-    if(a<=c+b){
+    if(triangle(a,b,c)){
         cout << "Les 3 longueurs forment un triangle valide." << endl;
-        triangle = 1;
-    } else cout << "Un triangle ne peut avoir ces 3 longueurs comme cote." << endl;
-
-    if(triangle){
         s = p / 2;
         A = sqrt(s*(s-a)*(s-b)*(s-c));
 
@@ -59,9 +58,8 @@ int main()
                 cout << "rectangle ";
             }
         }
-
         cout << endl;
         cout << "Votre triangle a un perimetre de " << p << " et une aire de " << A << endl;
-    }
+    } else cout << "Un triangle ne peut avoir ces 3 longueurs comme cote." << endl;
     return 0;
 }
