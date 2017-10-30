@@ -17,7 +17,7 @@ string askforline (string title) {
 }
 
 int askforint (string name) {
-	unsigned int usrin;
+	int usrin;
 	cout << name << " (int):\n>> ";
 	cin >> usrin;
 	return usrin;
@@ -43,8 +43,8 @@ void copy () {
 	string line1 = askforline("line to copy from");
 	unsigned int from=-1, size=-1;
 	unsigned linesize = line1.size();
-	while(from>linesize) from = askforint("From Position");
-	while(size>linesize-from+1) size = askforint("Number of characters");
+	while(from>linesize) from = (unsigned int)askforint("From Position");
+	while(size>linesize-from+1) size = (unsigned int)askforint("Number of characters");
 	string line2 = getcopy(line1,from,size);
 	cout<<line2<<endl;
 }
