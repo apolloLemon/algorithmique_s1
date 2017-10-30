@@ -91,6 +91,37 @@ void addstrings () {
 	cout<<line3<<endl;
 }
 
+int findstringindex (string instr1, string instr2) {
+	int pospos=0;
+	int linstr1 = instr1.size();
+	int linstr2 = instr2.size();
+	if(linstr2<linstr1){
+		return 0;
+	} 
+	int linstr3=linstr2-linstr1+1;
+	for(int i=0; i<linstr3;i++){
+		if(instr1[0]==instr2[i]){
+			pospos=i;
+			for(int j=1;j<linstr1;j++){
+				if(instr1[j]!=instr2[pospos+j]){
+					pospos=0;
+					j=linstr2;
+				}
+
+			}
+			if(!pospos) return pospos+1;
+		}
+	}
+	return pospos;
+}
+
+void findstring () {
+	string line1 = askforstring("line 1 in which we'll find in 2");
+	string line2 = askforstring(2);
+	int index = findstringindex(line1,line2);
+	cout<<index<<endl;
+}
+
 int main () {
 	int mode=0;
 	while(!mode) mode = choosemode();
@@ -103,6 +134,9 @@ int main () {
 			break;
 		case 3:
 			addstrings();
+			break;
+		case 4:
+			findstring();
 			break;
 		default:
 			cout << "Only 1 is availiable"<<endl;
