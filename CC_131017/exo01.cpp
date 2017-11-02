@@ -1,103 +1,82 @@
+//	Ici j'ai repris mon broullion et j'ai essaye de
+//	refaire comme j'ai fait durant le CC.
 #include <iostream>
 #include <ctime>
 #include <cmath>
 
-int w (int r1, int r2) {
-	int output = 0;
-	if(r1==fmax(r1,r2)) output+=1;
-	if(r2==fmax(r1,r2)) output+=10;
-	return output;
-}
-
-int w (int r1, int r2, int r3) {
-	int output = 0;
-	if(r1==fmax(fmax(r1,r2),r3)) output+=1;
-	if(r2==fmax(fmax(r1,r2),r3)) output+=10;
-	if(r3==fmax(fmax(r1,r2),r3)) output+=100;
-	return output;
-}
-
-int random (int max) {
-	return rand()%max+1;
-}
-
 int main () {
 	int s1=0,s2=0,s3=0,r1,r2,r3;
-	int dicesize = 9, winscore = 8, wcode;
+	int dicesize = 9, winscore = 8;
 	srand(time(NULL));
 
 	while(s1<winscore && s2<winscore && s3<winscore) {
-		r1=random(dicesize);
-		r2=random(dicesize);
-		r3=random(dicesize);
+		r1=rand()%dicesize+1;
+		r2=rand()%dicesize+1;
+		r3=rand()%dicesize+1;
 
 		std::cout << "\nScores: J1="<<s1<<", J2="<<s2<<", J3="<<s3<<std::endl;
 		std::cout << "Tirage: J1="<<r1<<", J2="<<r2<<", J3="<<r3<<std::endl;
 
-		wcode = w(r1,r2,r3);
+		if(r1+r2+r3==r1*3) {
+			std::cout << "Personne ne Gagne\n";
+			continue;
+		}
 
-		if(wcode==111) continue;
-		
-		if(wcode==1) {
-			std::cout << "J1 gagne\n";
+		if(r1>r2 && r1>r3) {
+			std::cout << "Jouer 1 Gagne\n";
 			s1++;
+			continue;
 		}
-		if(wcode==10) {
-			std::cout << "J2 gagne\n";
+		if(r2>r1 && r2>r3) {
+			std::cout << "Jouer 2 Gagne\n";
 			s2++;
+			continue;
 		}
-		if(wcode==100) {
-			std::cout << "J1 gagne\n";
+		if(r3>r1 && r3>r2) {
+			std::cout << "Jouer 3 Gagne\n";
 			s3++;
+			continue;
 		}
-
-		if(wcode==11) {
-			std::cout << "J1 = J2"<<std::endl;
-			r1=random(dicesize);
-			r2=random(dicesize);
-			wcode = w(r1,r2);
-			std::cout << "Tirage: J1="<<r1<<", J2="<<r2<<std::endl;
-			if(wcode==1) {
-				std::cout << "J1 gagne\n";
-				s1++;
-			} else if (wcode==10){
-				std::cout << "J2 gagne\n";
+		if(r1==r2) {
+			r1=rand()%dicesize+1;
+			r2=rand()%dicesize+1;
+			std::cout << "Jouers 1 et 2 execo.\nTirage J1="<<r1<<", J2="<<r2<<std::endl;
+			if(r1>r2) {
+				std::cout << "Jouer 1 Gagne\n";
+				s1++;		
+			} else if (r2>r1) {
+				std::cout << "Jouer 2 Gagne\n";
 				s2++;
 			}
 		}
-		if(wcode==101) {
-			std::cout << "J1 = J3"<<std::endl;
-			r1=random(dicesize);
-			r3=random(dicesize);
-			wcode = w(r1,r3);
-			std::cout << "Tirage: J1="<<r1<<", J3="<<r2<<std::endl;
-			if(wcode==1) {
-				std::cout << "J1 gagne\n";
-				s1++;
-			} else if (wcode==10){
-				std::cout << "J3 gagne\n";
-				s2++;
+		if(r1==r3) {
+			r1=rand()%dicesize+1;
+			r3=rand()%dicesize+1;
+			std::cout << "Jouers 1 et 3 execo.\nTirage J1="<<r1<<", J3="<<r3<<std::endl;
+			if(r1>r2) {
+				std::cout << "Jouer 1 Gagne\n";
+				s1++;		
+			} else if (r2>r1) {
+				std::cout << "Jouer 3 Gagne\n";
+				s3++;
 			}
 		}
-		if(wcode==110) {
-			std::cout << "J2 = J3"<<std::endl;
-			r2=random(dicesize);
-			r3=random(dicesize);
-			wcode = w(r2,r3);
-			std::cout << "Tirage: J2="<<r1<<", J3="<<r2<<std::endl;
-			if(wcode==1) {
-				std::cout << "J2 gagne\n";
-				s1++;
-			} else if (wcode==10){
-				std::cout << "J3 gagne\n";
-				s2++;
+		if(r2==r3) {
+			r2=rand()%dicesize+1;
+			r3=rand()%dicesize+1;
+			std::cout << "Jouers 2 et 3 execo.\nTirage J2="<<r2<<", J3="<<r3<<std::endl;
+			if(r1>r2) {
+				std::cout << "Jouer 2 Gagne\n";
+				s2++;		
+			} else if (r2>r1) {
+				std::cout << "Jouer 3 Gagne\n";
+				s3++;
 			}
 		}
 	}
-	wcode = w(s1,s2,s3);
-	if(wcode==1) std::cout << "P1 Win";
-	if(wcode==10) std::cout << "P2 Win";
-	if(wcode==100) std::cout << "P3 Win";
+	if(s1==winscore) std::cout << "P1 Win";
+	if(s2==winscore) std::cout << "P2 Win";
+	if(s3==winscore) std::cout << "P3 Win";
 
 	std::cout << std::endl;
 	return 0;
