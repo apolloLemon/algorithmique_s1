@@ -48,6 +48,7 @@ int main () {
 				std::cout << "Jouer 2 Gagne\n";
 				s2++;
 			}
+			continue;
 		}
 		if(r1==r3) {
 			r1=rand()%dicesize+1;
@@ -60,6 +61,7 @@ int main () {
 				std::cout << "Jouer 3 Gagne\n";
 				s3++;
 			}
+			continue;
 		}
 		if(r2==r3) {
 			r2=rand()%dicesize+1;
@@ -72,6 +74,7 @@ int main () {
 				std::cout << "Jouer 3 Gagne\n";
 				s3++;
 			}
+			continue;
 		}
 	}
 	if(s1==winscore) std::cout << "P1 Win";
