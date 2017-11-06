@@ -22,11 +22,6 @@ int nb_jours_dans_mois (int m, int y) {
 	return 30;
 }
 
-int nb_jours_dans_mois (int m) {
-	if (m==2) cout << "Fevrier a besoin de l'annee pour etre exacte\n";
-	return nb_jours_dans_mois(m, 1);
-}
-
 int nb_jours_dans_mois (string m, int y) {
 	string mois[12] = {"janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"};
 	string moisSaisi = "";
@@ -36,6 +31,11 @@ int nb_jours_dans_mois (string m, int y) {
 	}
 	cout << "erreur dans la saisie du mois (n'utilisez pas d'accents)\nValeur de 30 jours utilise\n";
 	return 30;
+}
+
+int nb_jours_dans_mois (int m) {
+	if (m==2) cout << "Fevrier a besoin de l'annee pour etre exacte\n";
+	return nb_jours_dans_mois(m, 1);
 }
 
 int main () {
