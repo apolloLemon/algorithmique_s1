@@ -30,15 +30,16 @@ int nb_jours_dans_mois (int m) {
 	return nb_jours_dans_mois(m, 0);
 }
 
-/*int nb_jours_dans_mois (string moisSaisi, int y) {
+int nb_jours_dans_mois (string m, int y) {
 	string mois[12] = {"janvier", "fevrier", "mars", "avril", "mai", "juin", "juillet", "aout", "septembre", "octobre", "novembre", "decembre"};
-	moisSaisi = tolower(moisSaisi);
+	string moisSaisi = "";
+	for(int i=0;i<m.size();i++) moisSaisi+=tolower(m[i]);
 	for(int i=0;i<12;i++){
 		if(moisSaisi==mois[i]) return nb_jours_dans_mois(i+1, y);
 	}
 	cout << "erreur dans la saisie du mois (n'utilisez pas d'accents)\nValeur de 30 jours utilise\n";
 	return 30;
-}*/
+}
 
 int main () {
 
