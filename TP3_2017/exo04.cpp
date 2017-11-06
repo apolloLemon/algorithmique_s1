@@ -10,6 +10,16 @@ bool est_bissextile (int y) {
 	} else return 0;
 }
 
+int nb_jours_dans_mois (int m, int y) {
+	if (m==2) {
+		return 28+bisex(y);
+	} else if (m<8 && m%2!=0) {
+		return 31;
+	} else if (m<=8 && m%2==0){
+		return 31;
+	}else return 30;
+}
+
 int main () {
 
 	return 0;
