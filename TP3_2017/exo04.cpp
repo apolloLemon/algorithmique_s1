@@ -11,7 +11,7 @@ bool est_bissextile (int y) {
 	return 0;
 }
 
-int nb_jours_dans_mois (int m, int y) {
+int nb_jours_dans_mois (unsigned int m, int y) {
 	if (m==2) {
 		return 28+est_bissextile(y);
 	} else if (m<8 && m%2!=0) {
@@ -33,9 +33,14 @@ int nb_jours_dans_mois (string m, int y) {
 	return 30;
 }
 
-int nb_jours_dans_mois (int m) {
+int nb_jours_dans_mois (unsigned int m) {
 	if (m==2) cout << "Fevrier a besoin de l'annee pour etre exacte\n";
 	return nb_jours_dans_mois(m, 1);
+}
+
+bool date_valide (unsigned int d, unsigned int m, int y) {
+	if (d<=nb_jours_dans_mois(m,y)) return 1;
+	return 0;
 }
 
 int main () {
