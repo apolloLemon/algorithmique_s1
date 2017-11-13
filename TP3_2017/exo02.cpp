@@ -42,6 +42,11 @@ int maximale (TabPrecipitations in, int size) {
 	return Cmax;
 }
 
+void GiveMinMax (string name, TabPrecipitations in, int size) {
+	cout <<"Max "<<name<<" = "<<maximale(in,size)<<endl;
+	cout <<"Min "<<name<<" = "<<minimale(in,size)<<endl;
+}
+
 int main () {
 	TabPrecipitations Angers, Nantes, Rennes;
 	unsigned int As, Ns, Rs;
@@ -56,20 +61,21 @@ int main () {
 				for(int i=0; i<As;i++){
 					Angers[i]=Getint(i+1);
 				}
-				cout<<"Max Angers = "<<maximale(Angers, As);
-				cout<<"Min Angers = "<<minimale(Angers, As);
+				GiveMinMax("Angers",Angers,As);
 				break;
 			case 110:
 				Ns = Getint("Nantes");
 				for(int i=0; i<Ns;i++){
 					Nantes[i]=Getint(i+1);
 				}
+				GiveMinMax("Nantes",Nantes,Ns);
 				break;
 			case 114:
 				Rs = Getint("Rennes");
 				for(int i=0; i<Rs;i++){
 					Rennes[i]=Getint(i+1);
 				}
+				GiveMinMax("Rennes",Rennes,Rs);
 				break;
 			default:
 				break;
