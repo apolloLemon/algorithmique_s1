@@ -78,6 +78,7 @@ int main () {
 				GiveMinMax("Rennes",Rennes,Rs);
 				break;
 			default:
+				cout<<"char incorrect"<<endl;
 				break;
 		}
 	} while (town-122);
