@@ -4,7 +4,7 @@
 
 using namespace std;
 const unsigned int buffSize = 512;	
-using TabPrecipitations = array<int,buffSize>;
+using TabPrecipitations = array<unsigned int,buffSize>;
 
 int Getint (string name){
 	int usrin;
