@@ -4,7 +4,7 @@
 using namespace std;
 
 int main () {
-	string sol, myst;
+	string sol, myst; 
 	char guess, wguess[26];
 	int wordsize, lives, maxlives;
 

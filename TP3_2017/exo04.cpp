@@ -44,6 +44,6 @@ bool date_valide (unsigned int d, unsigned int m, int y) {
 }
 
 int main () {
-
+	
 	return 0;
 }
