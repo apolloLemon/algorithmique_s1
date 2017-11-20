@@ -4,6 +4,7 @@
 using namespace std;
 
 bool triangle(float a, float b, float c) {
+    if(a<=0) return false;
 	return (a<=c+b);
 }
 
