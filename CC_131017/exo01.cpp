@@ -17,7 +17,7 @@ int main () {
 		std::cout << "\nScores: J1="<<s1<<", J2="<<s2<<", J3="<<s3<<std::endl;
 		std::cout << "Tirage: J1="<<r1<<", J2="<<r2<<", J3="<<r3<<std::endl;
 
-		if(r1+r2+r3==r1*3) {
+		if(r1==r2 && r1==r3) {
 			std::cout << "Personne ne Gagne\n";
 			continue;
 		}
