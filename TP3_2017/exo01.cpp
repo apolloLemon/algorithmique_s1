@@ -32,7 +32,7 @@ int main()
 {
     float x, y, z, s, A, p, a, b, c;
 
-    cout << "Rentrez les valeurs de vos 3 cotes separees d'espaces: " << endl;
+    cout << "Rentrez les valeurs de vos AB, BC, CA separees d'espaces: " << endl;
     cin >> x >> y >> z;
 
     p = x+y+z;
