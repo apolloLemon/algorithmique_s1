@@ -1,7 +1,15 @@
 #include <iostream>
-#include <cmath>
-
 using namespace std;
+
+int min (int a, int b){
+    if(a<=b) return a;
+    return b;
+}
+
+int max (int a, int b){
+    if(a>=b) return a;
+    return b;
+}
 
 bool triangle(float a, float b, float c) {
     if(a<=0) return false;
@@ -37,8 +45,8 @@ int main()
 
     p = x+y+z;
 
-    a = fmax(fmax(x,y),z);
-    c = fmin(fmin(x,y),z);
+    a = max(max(x,y),z);
+    c = min(min(x,y),z);
     b = p-a-c;
 
     if(triangle(a,b,c)){
