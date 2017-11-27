@@ -47,6 +47,12 @@ void GiveMinMax (string name, TabPrecipitations in, int size) {
 	cout <<"Min "<<name<<" = "<<minimale(in,size)<<endl;
 }
 
+void RemplirTableau (TabPrecipitations &in, int taille) {
+	for(int i=0; i<taille;i++){
+		in[i]=Getint(i+1);
+	}
+}
+
 int main () {
 	TabPrecipitations Angers, Nantes, Rennes;
 	unsigned int As, Ns, Rs;
@@ -58,23 +64,17 @@ int main () {
 		switch(town){
 			case 97:
 				As = Getint("Angers");
-				for(int i=0; i<As;i++){
-					Angers[i]=Getint(i+1);
-				}
+				RemplirTableau(Angers, As);
 				GiveMinMax("Angers",Angers,As);
 				break;
 			case 110:
 				Ns = Getint("Nantes");
-				for(int i=0; i<Ns;i++){
-					Nantes[i]=Getint(i+1);
-				}
+				RemplirTableau(Nantes, Ns);
 				GiveMinMax("Nantes",Nantes,Ns);
 				break;
 			case 114:
 				Rs = Getint("Rennes");
-				for(int i=0; i<Rs;i++){
-					Rennes[i]=Getint(i+1);
-				}
+				RemplirTableau(Rennes, Rs);
 				GiveMinMax("Rennes",Rennes,Rs);
 				break;
 			default:
