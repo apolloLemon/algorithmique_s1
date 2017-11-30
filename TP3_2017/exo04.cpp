@@ -2,6 +2,13 @@
 #include <string>
 using namespace std;
 
+int getInt (string name) {
+	int outint;
+	cout << "Entrez l'entier pour " << name << ": ";
+	cin >> outint;
+	return outint;
+}
+
 bool est_bissextile (int y) {
 	if(y%400==0){
 		return 1;
@@ -40,6 +47,17 @@ bool date_valide (unsigned int d, unsigned int m, int y) {
 	return jour_valide(d,m,y)*mois_valide(m);
 }
 
+int dayzfromzero (int d, int m, int y) {
+	int dayz = d;
+	for(int i=0;i<=y;i++){
+		dayz+=365+est_bissextile(i);
+	}
+	for(int i=1;i<=m;i++){
+		dayz+=nb_jours_dans_mois(i,y);
+	}
+	return dayz;
+}
+
 string datestring (int d, int m, int y){
 	string s=to_string(d);
 	s+='/';
@@ -57,9 +75,24 @@ string nextday (int d, int m, int y) {
 	return datestring(1,1,y+1);
 }
 
+void getDate (int &d, int &m, int &y) {
+	do {
+		cout << "Entrez la date:\n";
+		d = getInt("le jour");
+		m = getInt("le mois");
+		y = getInt("l'annee");	
+		cout << "Date entree: "<<d<<"/"<<m<<"/"<<y<<endl;
+	} while (!date_valide(d, m, y));
+}
+
 int main () {
 	int d, m, y;
-	cin >> d >> m >> y;
-	cout << nextday(d,m,y) << endl;
+	int dayzbetween;
+	getDate(d,m,y);
+	dayzbetween = dayzfromzero(d,m,y);
+	getDate(d,m,y);
+	dayzbetween -= dayzfromzero(d,m,y);
+	dayzbetween *= -1;
+	cout << "Nombre de jours entre les dates: "<<dayzbetween<<endl; 
 	return 0;
 }
