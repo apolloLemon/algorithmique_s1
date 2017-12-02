@@ -26,7 +26,7 @@ int main () {
 		} else if(r3>r1 && r3>r2) {
 			std::cout << "Jouer 3 Gagne\n";
 			s3++;
-		} else if(r1==r2 && r1>r3) {
+		} else if(r1==r2) {
 			r1=rand()%dicesize+1;
 			r2=rand()%dicesize+1;
 			std::cout << "Jouers 1 et 2 execo.\nTirage J1="<<r1<<", J2="<<r2<<std::endl;
@@ -37,7 +37,7 @@ int main () {
 				std::cout << "Jouer 2 Gagne\n";
 				s2++;
 			}
-		} else if(r1==r3 && r1>r2) {
+		} else if(r1==r3) {
 			r1=rand()%dicesize+1;
 			r3=rand()%dicesize+1;
 			std::cout << "Jouers 1 et 3 execo.\nTirage J1="<<r1<<", J3="<<r3<<std::endl;
@@ -48,7 +48,7 @@ int main () {
 				std::cout << "Jouer 3 Gagne\n";
 				s3++;
 			}
-		} else if(r2==r3 && r2>r1) {
+		} else if(r2==r3) {
 			r2=rand()%dicesize+1;
 			r3=rand()%dicesize+1;
 			std::cout << "Jouers 2 et 3 execo.\nTirage J2="<<r2<<", J3="<<r3<<std::endl;
