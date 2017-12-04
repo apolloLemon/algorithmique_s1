@@ -5,11 +5,11 @@ using tab_tracks = std::array<int,maxtrax>;
 //2
 int saisie (tab_tracks &a) {
 	int N;
-	cout << "Donner votre nombre de morceaux : ";
-	cin >> N;
+	std::cout << "Donner votre nombre de morceaux : ";
+	std::cin >> N;
 	for(int i=0;i<N;i++) {
-		cout << "Donner la duree en secondes : ";
-		cin >> a[i];
+		std::cout << "Donner la duree en secondes : ";
+		std::cin >> a[i];
 	}
 	return N;
 }
@@ -31,9 +31,9 @@ void aff_liste(tab_tracks a, int N, int Dmax) {
 	int stot =0;
 	for (int i=0;i<N;i++){
 		if(stot+a[i]>=Dmax) stot+=a[i];
-		cout << i << ' ';
+		std::cout << i << ' ';
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 //6
@@ -42,13 +42,13 @@ using tab_titres = std::array<string,maxtrax>;
 //7
 int saisie (tab_tracks &a, tab_titres &b) {
 	int N;
-	cout << "Donner votre nombre de morceaux : ";
-	cin >> N;
+	std::cout << "Donner votre nombre de morceaux : ";
+	std::cin >> N;
 	for(int i=0;i<N;i++) {
-		cout << "Donner le titre d'un morceau : ";
-		cin >> b[i];
-		cout << "Donner sa duree en secondes : ";
-		cin >> a[i];
+		std::cout << "Donner le titre d'un morceau : ";
+		std::cin >> b[i];
+		std::cout << "Donner sa duree en secondes : ";
+		std::cin >> a[i];
 	}
 	return N;
 }
@@ -56,13 +56,13 @@ int saisie (tab_tracks &a, tab_titres &b) {
 //8
 void affiche_tout (tab_tracks a, tab_titres b, int N) {
 	for(int i=0;i<N;i++) {
-		cout<< b[i]<<" (duree: "<<a[i]<<" secondes)\n";
+		std::cout<< b[i]<<" (duree: "<<a[i]<<" secondes)\n";
 	}
 }
 
 //9
 void aff_lettre (tab_titres a, int N, char L) {
 	for(int i=0;i<N;i++){
-		if(a[i][0]==L) cout<<a[i]<<endl; 
+		if(a[i][0]==L) std::cout<<a[i]<<std::endl; 
 	}
 }
