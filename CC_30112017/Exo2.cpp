@@ -52,3 +52,17 @@ int saisie (tab_tracks &a, tab_titres &b) {
 	}
 	return N;
 }
+
+//8
+void affiche_tout (tab_tracks a, tab_titres b, int N) {
+	for(int i=0;i<N;i++) {
+		cout<< b[i]<<" (duree: "<<a[i]<<" secondes)\n";
+	}
+}
+
+//9
+void aff_lettre (tab_titres a, int N, char L) {
+	for(int i=0;i<N;i++){
+		if(a[i][0]==L) cout<<a[i]<<endl; 
+	}
+}
