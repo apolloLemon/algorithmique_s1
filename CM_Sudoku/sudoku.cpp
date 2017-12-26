@@ -41,6 +41,29 @@ bool verif_col(sudoku a,int val,int col) {
 	return false;
 }
 
+//5.1 extra
+int min(int a){
+	if(a<3) return 0;
+	if(a<6) return 3;
+	return 6;	
+}
+int max(int a){
+	if(a<3) return 2;
+	if(a<6) return 5;
+	return 8;
+}
+
+//5.1
+bool verif_bloc(sudoku a,int val,int ligne,int col){
+	int xM=max(ligne), xm=min(ligne), yM=max(col), ym=max(col);
+	for(int i=ym;i<=yM;i++){
+		for(int j=xm;j<=xM;j++){
+			if(a[i][j]==val) return true;
+		}
+	}
+	return false;
+}
+
 //3.1
 void saisie(sudoku &a) {
 	bool saisieFini = false;
@@ -54,6 +77,11 @@ void saisie(sudoku &a) {
 		}
 		if(verif_ligne(a,val,y) || verif_col(a,val,x)) {
 			std::cout<<"\nLigne ou Colone deja occupe. ";
+			continue;
+		}
+		//5.2
+		if(verif_bloc(a,val,x,y)){
+			std::cout<<"\nCarre 3x3 deja occupe. ";
 			continue;
 		}
 		a[y][x]=val;
