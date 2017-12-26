@@ -25,6 +25,22 @@ void affiche (sudoku a) {
 	}
 }
 
+//2.a
+bool verif_ligne(sudoku a,int val,int ligne) {
+	for(int i=0;i<gridSize;i++){
+		if(a[ligne][i]==val) return true;
+	}
+	return false;
+}
+
+//2.b
+bool verif_col(sudoku a,int val,int col) {
+	for(int i=0;i<gridSize;i++){
+		if(a[i][col]==val) return true;
+	}
+	return false;
+}
+
 //Tester Main
 int main () {
 	sudoku S;
