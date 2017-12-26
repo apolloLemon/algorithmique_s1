@@ -71,7 +71,7 @@ bool fin (sudoku a){
 	return true;
 }
 
-//Tester Main
+//4
 int main () {
 	sudoku S;
 	init(S);
