@@ -55,7 +55,7 @@ int max(int a){
 
 //5.1
 bool verif_bloc(sudoku a,int val,int ligne,int col){
-	int xM=max(ligne), xm=min(ligne), yM=max(col), ym=max(col);
+	int xM=max(col), xm=min(col), yM=max(ligne), ym=min(ligne);
 	for(int i=ym;i<=yM;i++){
 		for(int j=xm;j<=xM;j++){
 			if(a[i][j]==val) return true;
@@ -73,19 +73,18 @@ void saisie(sudoku &a) {
 		std::cin>>val>>x>>y;
 		if(val>9 || val==0 || x >=9 || y >=9) {
 			std::cout<<"\nValeur, x ou y incorrect. ";
-			continue;
 		}
-		if(verif_ligne(a,val,y) || verif_col(a,val,x)) {
+		else if (verif_ligne(a,val,y) || verif_col(a,val,x)) {
 			std::cout<<"\nLigne ou Colone deja occupe. ";
-			continue;
 		}
 		//5.2
-		if(verif_bloc(a,val,x,y)){
+		else if(verif_bloc(a,val,x,y)){
 			std::cout<<"\nCarre 3x3 deja occupe. ";
-			continue;
+		} 
+		else {
+			a[y][x]=val;
+			saisieFini = true;
 		}
-		a[y][x]=val;
-		saisieFini = true;
 	}	 
 }
 
