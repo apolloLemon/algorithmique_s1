@@ -8,7 +8,9 @@
 //1
 const int ValMax = 49;
 const int Taille = 5;
+const int MaxGrilles = 10;
 using grille = std::array<unsigned int, Taille>;
+using grilles = std::array<grille, MaxGrilles>;
 
 //2
 void saisie (grille &a) {
@@ -75,16 +77,27 @@ int similarites (grille a, grille b) {
 //8
 int main () {
 	srand(time(NULL)); //dans les rappels
-	grille joueur, jeu;
-	std::cout<<"Parametres de la partie : numeros entre 1 et "<<ValMax<<", grilles de taille "<<Taille<<std::endl;
-	std::cout<<"Entrez vos numeros:\n";
-	do{
-		saisie(joueur);
-	}while(!grilleValide(joueur));
-	std::cout<<"Votre grille :: "; affiche(joueur);
+	grille jeu;
+	grilles joueur;
+	int numGrilles;
+	std::cout<<"Parametres de la partie : numeros entre 1 et "<<ValMax<<", "<<MaxGrilles<<" grilles maximum de taille "<<Taille<<std::endl;
+	std::cout<<"Nombre de grilles : ";
+	std::cin>>numGrilles;
+	for(int i=0;i<numGrilles;i++){
+		std::cout<<"Grille "<<i+1<<std::endl;
+		do{
+			saisie(joueur[i]);
+		}while(!grilleValide(joueur[i]));
+	}
+	std::cout<<"Vos grilles :: \n"; 
+	for(int i=0;i<numGrilles;i++){
+		affiche(joueur[i]);
+	}
 	do{
 		grilleAleatoire(jeu);
 	}while(!grilleValide(jeu));
-	std::cout<<"Tirage       :: "; affiche(jeu);
-	std::cout<<similarites(joueur,jeu)<<" bon(s) numero(s)\n";
+	std::cout<<"Tirage      :: \n"; affiche(jeu);
+	for(int i=0;i<numGrilles;i++){
+		std::cout<<"Grille "<<i+1<< " : "<<similarites(joueur[i],jeu)<<" bon(s) numero(s)\n";
+	}
 }
