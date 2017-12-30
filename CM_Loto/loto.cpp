@@ -35,7 +35,14 @@ void affiche (grille a) {
 	}
 }
 
+//4
+int aleatoire (int min, int max) {
+	return rand()%(max+1-min)+min;
+}
+
 int main () {
 	grille Un;
-	saisie(Un);
+	for(int i=0;i<10;i++){
+		std::cout << aleatoire(3,4);
+	}
 }
