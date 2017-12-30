@@ -31,8 +31,9 @@ void saisie (grille &a) {
 //3
 void affiche (grille a) {
 	for(int i=0;i<Taille;i++){
-		std::cout<<"Numero "<<i+1<<" : "<<a[i]<<std::endl;
+		std::cout<<"Numero "<<i+1<<" : "<<a[i]<<" ";
 	}
+	std::cout<<std::endl;
 }
 
 //4
@@ -71,13 +72,9 @@ int similarites (grille a, grille b) {
 	return simil;
 }
 
+//8
 int main () {
-	grille Un, Deux;
-	do {
-		saisie(Un);
-	} while(!grilleValide(Un));
-	do {
-		saisie(Deux);
-	} while(!grilleValide(Deux));
-	std::cout <<similarites(Un,Deux);
+	grille joueur, jeu;
+	std::cout<<"Parametres de la partie : numeros entre 1 et "<<ValMax<<", grilles de taille "<<Taille<<std::endl;
+	std::cout<<"Entrez vos numeros"
 }
