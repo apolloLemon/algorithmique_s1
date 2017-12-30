@@ -28,6 +28,13 @@ void saisie (grille &a) {
 	}
 }
 
+//3
+void affiche (grille a) {
+	for(int i=0;i<Taille;i++){
+		std::cout<<"Numero "<<i+1<<" : "<<a[i]<<std::endl;
+	}
+}
+
 int main () {
 	grille Un;
 	saisie(Un);
