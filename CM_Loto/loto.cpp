@@ -2,7 +2,7 @@
 #include <iostream>
 #include <array>
 #include <ctime>
-#include <cstlib>
+#include <cstdlib>
 
 
 //1
@@ -26,4 +26,9 @@ void saisie (grille &a) {
 			}
 		}
 	}
+}
+
+int main () {
+	grille Un;
+	saisie(Un);
 }
