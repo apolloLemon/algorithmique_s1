@@ -74,6 +74,7 @@ int similarites (grille a, grille b) {
 
 //8
 int main () {
+	srand(time(NULL)); //dans les rappels
 	grille joueur, jeu;
 	std::cout<<"Parametres de la partie : numeros entre 1 et "<<ValMax<<", grilles de taille "<<Taille<<std::endl;
 	std::cout<<"Entrez vos numeros:\n";
