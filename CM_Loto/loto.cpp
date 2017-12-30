@@ -40,6 +40,13 @@ int aleatoire (int min, int max) {
 	return rand()%(max+1-min)+min;
 }
 
+//5
+int grilleAleatoire (grille &a) {
+	for(int i=0;i<Taille;i++){
+		a[i]=aleatoire(1,ValMax);
+	}
+}
+
 int main () {
 	grille Un;
 	for(int i=0;i<10;i++){
