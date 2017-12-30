@@ -41,15 +41,25 @@ int aleatoire (int min, int max) {
 }
 
 //5
-int grilleAleatoire (grille &a) {
+void grilleAleatoire (grille &a) {
 	for(int i=0;i<Taille;i++){
 		a[i]=aleatoire(1,ValMax);
 	}
 }
 
+//6
+bool grilleValide (grille a) {
+	for(int i=0;i<Taille;i++){
+		for(int j=i+1;j<Taille;j++){
+			if (a[i]==a[j]) return false;
+		}
+	}
+	return true;
+}
+
 int main () {
 	grille Un;
-	for(int i=0;i<10;i++){
-		std::cout << aleatoire(3,4);
-	}
+	do {
+		saisie(Un);
+	} while(!grilleValide(Un));
 }
