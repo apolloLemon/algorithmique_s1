@@ -57,9 +57,27 @@ bool grilleValide (grille a) {
 	return true;
 }
 
+//7
+int similarites (grille a, grille b) {
+	int simil = 0;
+	for(int i=0;i<Taille;i++){
+		for(int j=0;j<Taille;j++){
+			if(a[i]==b[j]){
+				simil++;
+				break;
+			}
+		}
+	}
+	return simil;
+}
+
 int main () {
-	grille Un;
+	grille Un, Deux;
 	do {
 		saisie(Un);
 	} while(!grilleValide(Un));
+	do {
+		saisie(Deux);
+	} while(!grilleValide(Deux));
+	std::cout <<similarites(Un,Deux);
 }
